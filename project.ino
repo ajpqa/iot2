@@ -1,5 +1,3 @@
-#include <Wire.h>
-
 #include <SoftwareSerial.h>
 //#include <ESP8266Wifi.h> //easy management of Wifi over ESP8266 but libraray not available in Tinkercad
 //#include <PubSubClient.h> //MQTT library, not available in Tinkercad
