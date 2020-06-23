@@ -11,12 +11,12 @@ int readPhoto;
 float readTemp;
 float readDistance;
 
-const char* ssid = "MASTER";
-const char* password = "malagaiot";
+const char* ssid = "SSID";
+const char* password = "PASSWORD";
 
-const char* mqtt_server = "iot.ac.uma.es";
-const char* mqtt_user = "master";
-const char* mqtt_pass = "malagaiot";
+const char* mqtt_server = "broker.hivemq.com";
+const char* mqtt_user = "USERNAME";
+const char* mqtt_pass = "PASSWORD";
 
 SoftwareSerial esp8266(7,6);
 
