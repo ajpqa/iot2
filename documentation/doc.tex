@@ -65,7 +65,7 @@ In this part we will describe our the scheme of our project, which is to be seen
 The last component of the hardware scheme is the ESP8266 Wifi module which is used to send the measured data to a user interface and Google Cloud using the MQTT protocol. Sadly the Tinkercad circuit simulator doesn't support the Arduino library \texttt{PubSubClient.h} which leads to us not being able to test our configuration properly. In theory the provided code should work in a real environment but sadly the limitations of the simulator are to narrow. So we used a python script to simulate sending the data to the MQTT broker, so that our circuit, user interface and evaluation of the data in Google Cloud works but the transmission of the data has to be simulated by us. 
 \begin{figure}
     \centering
-	\hspace*{-4cm}\includegraphics[scale=0.3]{scheme.png}
+	\includegraphics[scale=0.3]{scheme_cropped.png}
 	\caption{Circuit that was built during the project}
 	\label{fig:scheme}
 \end{figure}
