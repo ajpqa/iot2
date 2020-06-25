@@ -76,7 +76,7 @@ The implementation of the project was written in the programming languages C++ a
 \end{itemize}
 \subsection{project.ino}
 The project.ino file contains the code controlling the Arduino. Its main purpose is to collect the sensor data and convert it to humanly standardized measurements. Thus the data is sent via MQTT to a broker. \par
-This file consists of multiple functions. The following two additional helper functions were written; \texttt{sendData} handles sending commands to the ESP8266 Wifi module and \texttt{readUltraSonicDistance} handles measuring the distance as it requires relatively more than the other sensors. The two basic functions are \texttt{setup()} and \texttt{loop()}. \texttt{setup()} initializes all variables and sets up the connection to the Wifi while \texttt{loop()} periodically gets the sensors' measurements, prints them to the serial monitor and finally converts the data into a JSON and publishes it via MQTT. Due to restrictions of the TinkerCAD simulator, the last part can't be used in the simulator as the MQTT library is not available there. Additionally, the Wifi module itself is no longer supported because of security reasons (see figure \ref{fig:security}). There is also a library which should make it easier to establish a Wifi connection using the ESP8266 but it also not supported in the simulator. So finally, the code regarding MQTT and the Wifi library are in the file as comments. It should work in a real environment but it can't be tested in the simulator. Furthermore, we created a python file \texttt{mqtt.py} as a workaround which simulates the publishing of the data, which is explained in the next chapter.\par
+This file consists of multiple functions. The following two additional helper functions were written; \texttt{sendData} handles sending commands to the ESP8266 Wifi module and \texttt{readUltraSonicDistance} handles measuring the distance as it requires relatively more than the other sensors. The two basic functions are \texttt{setup()} and \texttt{loop()}. \texttt{setup()} initializes all variables and sets up the connection to the Wifi while \texttt{loop()} periodically gets the sensors' measurements, prints them to the serial monitor and finally converts the data into a JSON and publishes it via MQTT. Due to restrictions of the TinkerCAD simulator, the last part can't be used in the simulator as the MQTT library is not available there. Additionally, the Wifi module itself is no longer supported because of security reasons (see Figure \ref{fig:security}). There is also a library which should make it easier to establish a Wifi connection using the ESP8266 but it also not supported in the simulator. So finally, the code regarding MQTT and the Wifi library are in the file as comments. It should work in a real environment but it can't be tested in the simulator. Furthermore, we created a python file \texttt{mqtt.py} as a workaround which simulates the publishing of the data, which is explained in the next chapter.\par
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{security.png}
@@ -114,7 +114,7 @@ The summarize page functions to evaluate the values. With the "Summarize" button
 
 \section{Google Cloud Platform}
 To be able to store the measured data for later analysis we decided to use the Google Cloud Platform as it provides enough storage as well as multiple tools to analyze the stored data.\par
-We used a similar approach to the class. We created a new registry and device to receive the data via MQTT using the Pub/Sub tool provided by the Google Cloud Platform. As seen in figure \ref{pic:messages} the data is received successfully.\par
+We used a similar approach to the class. We created a new registry and device to receive the data via MQTT using the Pub/Sub tool provided by the Google Cloud Platform. As seen in Figure \ref{pic:messages} the data is received successfully.\par
 \begin{figure}
 \centering
 \includegraphics[scale=0.4]{messages.png}
@@ -130,7 +130,7 @@ To permanently store the received data we used a Cloud Function to store the dat
 \end{figure}
 From there it can be easily extracted to either look at certain data points or analyze it using further tools.
 \subsection{Mango}
-Additionally, we have created a simple user interface using Mango which runs in a virtual machine using the Compute Engine of Google Cloud Platform. This interface can be accessed through the internet without having any programs running locally. This is a great alternative to the Tkinter interface, as it as a web-based control user interface. However, this Mango user interface is not intended to be the main interface and it only demonstrates the current measured values as a general overview. It can be seen in Figure \ref{fig:mango}
+Additionally, we have created a simple user interface using Mango which runs in a virtual machine using the Compute Engine of Google Cloud Platform. This interface can be accessed through the internet without having any programs running locally. This is a great alternative to the Tkinter interface, as it as a web-based control user interface. However, this Mango user interface is not intended to be the main interface and it only demonstrates the current measured values as a general overview. It can be seen in Figure \ref{fig:mango}.
 \begin{figure}
 \centering
 \includegraphics[scale=0.35]{mango.png}
