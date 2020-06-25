@@ -58,7 +58,6 @@ In the following the independent functions of the sensors are described:
 \end{itemize}
 
 For the development of this project, we have mainly used the applications and tools introduced in the course. Due to do the current pandemic we have opted to build the circuit in the online simulator TinkerCAD instead of a physical circuit. This also enabled us easily to work together. The source code is to be found in our GitHub repository \url{https://github.com/ajpqa/iot2}. The hardware scheme is to be found under \url{https://www.tinkercad.com/things/9b2RV6Rs0I2-projectfinal}.
-
 \section{Hardware Scheme}
 In this part, we will describe the scheme of our project, which is to be seen in Figure \ref{fig:scheme}. It consists of an Arduino Uno R3 which functions as a micro-controller and collects data of the environment to control the sprinklers. The sensors to collect data are TMP36 (a temperature sensor), HC-SR04 (a distance sensor), and Photoresistor (a light sensor). The temperature is measured because the plants need more water if it's warmer and less if the temperature isn't that high. Furthermore, the light sensor is used to determine a good day time to water the plants. Preferably it should always happen in the evening or night as there is a higher chance people work there during the day and plants can get \enquote{burned} if there is strong sunlight that gets amplified by water drops on the plants. And lastly, we use a distance sensor to determine if the door to the greenhouse is open or closed. If it is open there are workers inside which means that the sprinklers have to be turned off. Only after the door is closed the sprinkler can be turned on again.\par
 The last component of the hardware scheme is the ESP8266 Wifi module which is used to send the measured data to a user interface and Google Cloud by using the MQTT protocol. Unfortunately, the Tinkercad circuit simulator doesn't support the Arduino library \texttt{PubSubClient.h} which leads to us not being able to test our configuration completely. For this, the limitations of the simulator are too narrow. In theory, the developed code will work in a real environment and as a solution, we have provided a python script to simulate the sending of the data to the MQTT broker so that the circuit, the user interface, and the evaluation of collected data work well with Google Cloud however the transmission of the data has to be additionally simulated by executing the python script.
@@ -68,7 +67,6 @@ The last component of the hardware scheme is the ESP8266 Wifi module which is us
 \caption{Circuit that was built during the project}
 \label{fig:scheme}
 \end{figure}
-
 \section{Implementation}
 The implementation of the project was written in the programming languages C++ and Python. The project consists of the following main parts:
 \begin{itemize}
