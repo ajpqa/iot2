@@ -108,6 +108,9 @@ The summarize page functions to evaluate the values. With the "Summarize" button
 \label{fig:summarize}
 \end{figure}
 
+\section{Mango}
+Additionally to the Tkinter user interface we also created a simple user interface usign Mango which runs in a virtual machine using Compute Engine of the Google Cloud Platform
+
 \section{Google Cloud Platform}
 To be able to store the measured data for later analysis we decided to use the Google Cloud Platform as it provides enough storage as well as multiple tools to analyse the stored data.\par
 We used a similar approach to the class. We created a new registry and device to receive the data via MQTT using the Pub/Sub tool provided by the Google Cloud Platform. As seen in figure \ref{pic:messages} the data is received successfully.\par
@@ -125,7 +128,14 @@ To permanently store the received data we used a Cloud Function to store the dat
 \label{fig:table}
 \end{figure}
 From there it can be easily extracted to either look at certain data points or analyze it using further tools.
-
+\subsection{Mango}
+Additionally we also created a simple user interface using Mango which runs in a virtual machine using Compute Engine. This interface can be accessed through the internet without having any programs running locally. So if for whatever reason it is not possible to run the Tkinter interface, we wanted to privide another solution as backup. As it is not intended to be the main interface, it only shows the current measured values as a general overview. It can be seen in figure \ref{fig:mango}
+\begin{figure}
+    \centering
+    \includegraphics[scale=0.35]{mango.png}
+    \caption{User Interface created using Mango}
+    \label{fig:mango}
+\end{figure}
 \section{Summary}
 In this document, we have presented our developed IoT System Project for irrigation sprinklers. We have built the circuit in TinkerCAD, which collects data from the sensors. Thus the data from the sensors are used to provide data for our user interface, for a local view of the data and control of the sprinklers, and Google Cloud Console, for further complex data storage and evaluation. There were some difficulties due to the current pandemic that we could not work with actual physical hardware. However, we are confident that our system will run on real environment hardware with a few fixes. \newline
 It was enjoyable to work on the project as a team and to implement our personal idea into a practical solution was great. This project gave us a great opportunity to work and further practice the tools and technologies we have reviewed in the course. There are more possibilities to enhance the system such as; more components like LED and Battery to provide further feedback and portability to the device. On the software side, the user interface can be improved by being able to set exact attributes on how to run the system and sprinklers. Also by communicating with actual people who work in this agricultural field, more personalized and needed data can be illustrated. Nonetheless, we believe that the core and main functions of the system are considered and presented.
