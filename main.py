@@ -2,7 +2,7 @@ __author__ = 'grupo_k-tegshig_tim'
 
 import tkinter as tk
 from tkinter import ttk
-from sense_emu import SenseHat
+#from sense_emu import SenseHat
 from tkinter.messagebox import showinfo
 import time
 import datetime
